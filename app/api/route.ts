@@ -4,7 +4,6 @@ import OpenAI from "openai";
 const openai = new OpenAI({
   apiKey:process.env.OPENAI_API_KEY, // Replace with your actual API key
 });
-
 export async function POST(req: Request, res: NextResponse) {
   try {
     const body = await req.json(); 
@@ -31,7 +30,9 @@ export async function POST(req: Request, res: NextResponse) {
       messages: [{"role": "system", "content": `${promptx}`}],
       model: "gpt-3.5-turbo",
     });
-    // console.log(completionx.choices[0].message.content);
+
+
+    console.log(completionx.choices[0].message.content);
 
     // Request completion from OpenAI API
     // const completion = await openai.completions.create({
